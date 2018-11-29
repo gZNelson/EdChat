@@ -1,0 +1,17 @@
+Chat multiusuario implementado en Java.
+se modifica la clase de servidor, debido a que cuando se levanta el hilo con el cliente, 
+se escucha la atención entre los clientes y no más mensajes y vota la conexión del conector con el cliente. 
+/ Aspectos clasificados /
+1- Se realizaron dos interfaces una para los clientes "Utilitario Cliente" y otra para manejar los Hilos de comunicación con el servidor 
+a la vez que dicha interfaz nombramos "UtilitarioHilo".
+2- se crea una clase llamada Cliente core para la gestión de sockets (También en la clase  que se implementa la interfaz Utilitiario 
+Cliente). Cuando el cliente se  conecta con el servidor, se crea un hilo que esté escuchando constantemente. 
+3- se cree una clase llamada serverCore que hereda de la clase Thread. Esta es la clase de los clientes que se conectan al servidor, 
+y que se trata de una función principal. 
+4- se creo una clase llamada HiloclienteCore que hereda de la clase Thread para el manejo 
+de sockets (también en la cuenta que se implementa la interfaz UtilitiarioHilo). Cada vez que un nuevo cliente se conecta, dentro 
+de la clase servidor se publica un nuevo HiloClienteCore y se agrega a la lista de clientes. Este hilo cuenta con un conector para 
+que pueda enviar y recibir mensajes para que el cliente esté conectado y tenga como principal función escuchar constantemente en 
+el caso de que el cliente envíe mensajes. 
+5- Implementación de dos cuadros, Uno para el servidor. Punto en el cual. Se ve el listado de clientes conectados y el Marco que 
+sirve para el mensaje.
